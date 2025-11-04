@@ -3,167 +3,144 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Marclioun Zalabaka – Cinematic Editor</title>
-
+    <title>Marclioun Zalabaka | Video Editor</title>
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #0d0d0d;
-            color: white;
+            font-family: Inter, Arial, sans-serif;
+            background: #0f0f0f;
+            color: #ffffff;
         }
 
         header {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 0 40px;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f');
-            background-size: cover;
-            background-position: center;
+            padding: 80px 20px;
+            text-align: center;
         }
 
-        h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            margin: 0;
-            text-transform: uppercase;
+        .name {
+            font-size: 48px;
+            font-weight: 700;
         }
 
         .bio {
             margin-top: 20px;
-            font-size: 1.6rem;
-            line-height: 1.5;
+            font-size: 20px;
             max-width: 700px;
-            font-weight: 300;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.85;
+            line-height: 1.6;
         }
 
-        .contact-section {
-            padding: 60px 40px;
-            background: #111;
+        .socials {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
 
-        .contact-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .contact-section a {
-            display: block;
-            font-size: 1.3rem;
-            color: #00aaff;
-            margin: 10px 0;
+        .socials a {
+            color: #73a7ff;
             text-decoration: none;
-            font-weight: 600;
+            font-size: 18px;
+            transition: 0.2s ease;
         }
 
-        .contact-section a:hover {
-            text-decoration: underline;
+        .socials a:hover {
+            opacity: 0.7;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 50px 0 20px 20px;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            padding: 20px;
+        }
+
+        .project-card {
+            background: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transform: translateY(0);
+            transition: 0.25s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0px 6px 20px rgba(0,0,0,0.45);
+        }
+
+        .project-thumb {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
         }
 
         footer {
-            padding: 40px;
-            background: #0b0b0b;
             text-align: center;
-            font-size: 1.1rem;
-            color: #bbb;
+            padding: 40px 20px;
+            opacity: 0.6;
+            font-size: 14px;
         }
-
-        footer .social-links a {
-            margin: 0 10px;
-            text-decoration: none;
-            font-weight: 700;
-        }
-        /* Animated thumbnail hover */
-    .thumb img{
-        transition: transform 0.5s ease, filter 0.5s ease;
-    }
-
-    .card:hover .thumb img{
-        transform: scale(1.08);
-        filter: brightness(1.15) saturate(1.2);
-    }
-
-    /* Shimmer sweep */
-    .thumb::after{
-        content:"";
-        position:absolute;
-        top:0;left:-120%;
-        width:80%;height:100%;
-        background:linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.18) 50%, transparent 100%);
-        transform:skewX(-20deg);
-        transition:0.6s;
-    }
-
-    .card:hover .thumb::after{
-        left:120%;
-    }
-</style>
+    </style>
 </head>
 
 <body>
 
+    <!-- HERO -->
     <header>
-        <h1>Marclioun Zalabaka</h1>
-        <p class="bio">
-            Dynamic video editor specializing in motion graphics, color grading, and sound effects.
-            Proficient in CapCut Pro and Canva to craft polished, engaging content that captivates audiences.
-            Experienced in transforming raw footage into compelling stories for social media, commercials, and branded projects.
-        </p>
+        <div class="name">MARCLIOUN ZALABAKA</div>
+
+        <div class="bio">
+            Dynamic video editor specializing in motion graphics, color grading,
+            and sound effects. Proficient in CapCut Pro and Canva to craft
+            polished, engaging content that captivates audiences. Experienced in
+            transforming raw footage into compelling stories for social media,
+            commercials, and branded projects.
+        </div>
+
+        <div class="socials">
+            <a href="https://x.com/youngbakanft?s=21" target="_blank">X (Twitter)</a>
+            <a href="https://www.instagram.com/its_youngbaka" target="_blank">Instagram</a>
+        </div>
     </header>
 
-    <section class="portfolio" style="padding:60px 40px; background:#0f0f0f;">
-        <h2 style="font-size:2.5rem; margin-bottom:30px;">Recent Work</h2>
+    <!-- WORK SECTION -->
+    <div class="section-title">Recent Work</div>
 
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:30px;">
+    <div class="projects">
 
-            <!-- PROJECT 1 -->
-            <a href="https://drive.google.com/file/d/1aCqOAGof60J09zAD8jia3nvk0ed839Cf/preview" target="_blank" style="text-decoration:none;">
-                <div style="background:#111; padding:15px; border-radius:10px;">
-                    <img src="thumbnail_social_analytics.jpg" style="width:100%; border-radius:10px;" />
-                    <p style="margin-top:10px; font-size:1.1rem; color:#ccc;">Project 1</p>
-                </div>
-            </a>
+        <!-- Project 1 -->
+        <a class="project-card"
+           href="https://drive.google.com/file/d/1aCqOAGof60J09zAD8jia3nvk0ed839Cf/view"
+           target="_blank">
+            <img class="project-thumb" src="thumbnails/social-analytics.png" />
+        </a>
 
-            <!-- PROJECT 2 -->
-            <a href="https://drive.google.com/file/d/1ZQ5CzS8ZZLY0uH3i3MVXFJvBfiZKjKi_/preview" target="_blank" style="text-decoration:none;">
-                <div style="background:#111; padding:15px; border-radius:10px;">
-                    <img src="thumbnail_moolah.jpg" style="width:100%; border-radius:10px;" />
-                    <p style="margin-top:10px; font-size:1.1rem; color:#ccc;">Project 2</p>
-                </div>
-            </a>
+        <!-- Project 2 -->
+        <a class="project-card"
+           href="https://drive.google.com/file/d/1ZQ5CzS8ZZLY0uH3i3MVXFJvBfiZKjKi_/view"
+           target="_blank">
+            <img class="project-thumb" src="thumbnails/moolah.png" />
+        </a>
 
-            <!-- PROJECT 3 -->
-            <a href="https://drive.google.com/file/d/1DlqzI49dK7iE8dWR1yykruHDyrrG0dH9/preview" target="_blank" style="text-decoration:none;">
-                <div style="background:#111; padding:15px; border-radius:10px;">
-                    <img src="thumbnail_journey_earth.jpg" style="width:100%; border-radius:10px;" />
-                    <p style="margin-top:10px; font-size:1.1rem; color:#ccc;">Project 3</p>
-                </div>
-            </a>
+        <!-- Project 3 -->
+        <a class="project-card"
+           href="https://drive.google.com/file/d/1DlqzI49dK7iE8dWR1yykruHDyrrG0dH9/view"
+           target="_blank">
+            <img class="project-thumb" src="thumbnails/journey-earth.png" />
+        </a>
 
-        </div>
-    </section>
+    </div>
 
-    <section class="contact-section">
-        <h2>Contact</h2>
-        <a href="https://x.com/youngbakanft?s=21" target="_blank">X (Twitter)</a>
-        <a href="https://www.instagram.com/its_youngbaka?igsh=ZDNzMWNmd3dyeHo2&utm_source=qr" target="_blank">Instagram</a>
-    </section>
-
-    <footer>
-        <div>© <span id="year"></span> Vibrant Cinematic</div>
-        <div style="color:#777">Built with care • Smooth playback guaranteed</div>
-
-        <div class="social-links" style="margin-top: 15px;">
-            <a href="https://x.com/youngbakanft?s=21" target="_blank" style="color:#00aaff;">X</a>
-            <a href="https://www.instagram.com/its_youngbaka?igsh=ZDNzMWNmd3dyeHo2&utm_source=qr" target="_blank" style="color:#ff006e;">Instagram</a>
-        </div>
-    </footer>
-
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+    <footer>© 2025 Marclioun Zalabaka</footer>
 
 </body>
 </html>

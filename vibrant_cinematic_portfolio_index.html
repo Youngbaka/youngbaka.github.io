@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vibrant Cinematic — Portfolio</title>
+  <meta name="description" content="Vibrant cinematic portfolio for a video editor — neon accents, bold typography and cinematic hover effects." />
+  <style>
+    /* ---------- VARIABLES ---------- */
+    :root{
+      --bg:#0b0b0f;
+      --panel:#0f1114;
+      --glass: rgba(255,255,255,0.03);
+      --neon-c: 216, 101, 255; /* custom blend start (magenta-ish) */
+      --neon-b: 32, 210, 255;  /* custom blend end (cyan-ish) */
+      --accent-1: rgba(var(--neon-c),1);
+      --accent-2: rgba(var(--neon-b),1);
+      --muted: #9aa0a6;
+      --max-width:1200px;
+      --radius:14px;
+      --ease: cubic-bezier(.2,.9,.25,1);
+    }
+
+    /* ---------- RESET ---------- */n
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(var(--neon-b),0.05), transparent 6%),
+                  radial-gradient(1000px 500px at 90% 90%, rgba(var(--neon-c),0.04), transparent 6%),
+                  var(--bg);
+      color:#e8eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:36px 20px;
+      display:flex;justify-content:center;
+    }
+
+    .container{width:100%;max-width:var(--max-width)}
+
+    /* ---------- TOP BAR ---------- */
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{
+      width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg, rgba(var(--neon-b),0.12), rgba(var(--neon-c),0.16));
+      display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;color:transparent;
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);box-shadow: 0 6px 30px rgba(0,0,0,0.6), inset 0 -1px 0 rgba(255,255,255,0.02);
+    }
+    .brand h1{font-size:18px;margin:0}
+    .brand p{margin:0;color:var(--muted);font-size:12px}
+
+    nav{display:flex;gap:12px;align-items:center}
+    .nav-btn{padding:10px 14px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.04);cursor:pointer;font-weight:600}
+    .cta{background:linear-gradient(90deg,var(--accent-2),var(--accent-1));color:#05060a;padding:10px 16px;border-radius:10px;border:none}
+
+    /* ---------- HERO ---------- */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-bottom:36px}
+    .hero-left{padding:28px;border-radius:var(--radius);background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);box-shadow:0 6px 30px rgba(0,0,0,0.6)}
+    .kicker{font-size:13px;color:var(--muted);letter-spacing:1.6px;text-transform:uppercase}
+    .headline{font-size:44px;line-height:1.02;margin:8px 0 12px}
+    .sub{color:var(--muted);margin-bottom:18px;max-width:60%}
+
+    .hero-actions{display:flex;gap:12px}
+    .ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 14px;border-radius:10px}
+
+    /* animated waveform strip */
+    .wave-strip{height:12px;border-radius:999px;background:linear-gradient(90deg, rgba(var(--neon-b),0.14), rgba(var(--neon-c),0.14));overflow:hidden;margin-top:18px}
+    .wave{height:100%;width:200%;background:linear-gradient(90deg, rgba(var(--neon-b),0.6) 0%, rgba(var(--neon-c),0.6) 50%, rgba(var(--neon-b),0.6) 100%);transform:translateX(-40%);animation:wave 6s linear infinite}
+    @keyframes wave{to{transform:translateX(0)}}
+
+    .hero-right{position:relative;border-radius:var(--radius);overflow:hidden;height:320px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:flex;align-items:center;justify-content:center}
+    .hero-right video{width:110%;height:110%;object-fit:cover;transform:scale(1.06)}
+    .hero-overlay{position:absolute;inset:12px;border-radius:12px;pointer-events:none;border:1px solid rgba(255,255,255,0.03)}
+
+    /* ---------- PORTFOLIO GRID ---------- */
+    .section-title{display:flex;align-items:center;justify-content:space-between;margin:8px 0 12px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+
+    .card{border-radius:12px;overflow:hidden;position:relative;background:linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.45));cursor:pointer;transition:transform .45s var(--ease), box-shadow .45s var(--ease)}
+    .card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(0,0,0,0.6)}
+
+    .thumb{position:relative;height:180px;background:#070709;display:flex;align-items:center;justify-content:center}
+    .thumb img, .thumb video{width:100%;height:100%;object-fit:cover;display:block}
+
+    .meta{padding:12px}
+    .meta h3{margin:0;font-size:16px}
+    .meta p{margin:6px 0 0;color:var(--muted);font-size:13px}
+
+    /* neon border on hover */
+    .card:after{content:"";position:absolute;inset:0;border-radius:12px;pointer-events:none;opacity:0;transition:opacity .3s}
+    .card:hover:after{opacity:1;background:linear-gradient(90deg, rgba(var(--neon-b),0.12), rgba(var(--neon-c),0.12));box-shadow:0 0 40px rgba(var(--neon-c),0.12)}
+
+    /* tilt + sheen */
+    .thumb::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg, rgba(255,255,255,0.02), transparent 40%);transform:skewX(-12deg) translateX(-60%);transition:transform .9s var(--ease)}
+    .card:hover .thumb::before{transform:skewX(-12deg) translateX(20%)}
+
+    /* badge */
+    .badge{position:absolute;left:12px;top:12px;padding:6px 8px;border-radius:8px;font-weight:700;font-size:12px;background:linear-gradient(90deg,var(--accent-2),var(--accent-1));color:#030308}
+
+    /* ---------- MODAL ---------- */
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(0,0,0,0.65),rgba(0,0,0,0.78));z-index:80}
+    .modal.open{display:flex}
+    .modal-card{width:90%;max-width:1100px;background:transparent;border-radius:12px;overflow:hidden}
+    .modal-card video{width:100%;height:70vh;object-fit:cover;border-radius:12px}
+    .modal-close{position:absolute;right:28px;top:28px;padding:10px 12px;border-radius:10px;background:rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.04);cursor:pointer}
+
+    /* ---------- FOOTER ---------- */
+    footer{margin-top:36px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;align-items:center}
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .hero-right{height:240px}
+    }
+    @media (max-width:640px){
+      .grid{grid-template-columns:1fr}
+      header{flex-direction:column;align-items:flex-start}
+      .hero-right{height:180px}
+      .headline{font-size:28px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">VB</div>
+        <div>
+          <h1>Vibrant Cinematic</h1>
+          <p>Video editor — portfolio & showreels</p>
+        </div>
+      </div>
+      <nav>
+        <button class="nav-btn">Work</button>
+        <button class="nav-btn">About</button>
+        <button class="nav-btn">Contact</button>
+        <button class="cta">Hire Me</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-left">
+          <div class="kicker">Showreel</div>
+          <div class="headline">Cinematic cuts & color — craft that moves.</div>
+          <div class="sub">I edit narrative, commercial, and music visuals with cinematic color grading, rhythmic cuts and immersive sound-aware pacing.</div>
+          <div class="hero-actions">
+            <button class="cta" id="playShowreel">Play Showreel</button>
+            <button class="ghost">Download Reel</button>
+          </div>
+
+          <div class="wave-strip" aria-hidden>
+            <div class="wave"></div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <!-- Replace with your showreel mp4 or muted autoplay short clip -->
+          <video autoplay muted loop playsinline src="https://cdn.pixabay.com/vimeo/382200087/coffee-240p.mp4?width=1280&hash=..." ></video>
+          <div class="hero-overlay"></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-title">
+          <h2>Selected Works</h2>
+          <div style="color:var(--muted);font-size:13px">Filter: <strong style="color:var(--accent-1)">All</strong></div>
+        </div>
+
+        <div class="grid" id="portfolioGrid">
+          <!-- Card example duplicated - replace thumbnails and sources -->
+
+          <article class="card" data-video-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4">
+            <div class="thumb">
+              <div class="badge">Trailer</div>
+              <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=abcdef" alt="work 1" />
+            </div>
+            <div class="meta">
+              <h3>Neon Nights — Promo</h3>
+              <p>Commercial teaser • 0:48</p>
+            </div>
+          </article>
+
+          <article class="card" data-video-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4">
+            <div class="thumb">
+              <div class="badge">Music</div>
+              <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=abcdef" alt="work 2" />
+            </div>
+            <div class="meta">
+              <h3>Pulse Lines — Music Video</h3>
+              <p>Music video • 3:12</p>
+            </div>
+          </article>
+
+          <article class="card" data-video-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4">
+            <div class="thumb">
+              <div class="badge">Short</div>
+              <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=abcdef" alt="work 3" />
+            </div>
+            <div class="meta">
+              <h3>Maroon Frame — Short Film</h3>
+              <p>Narrative • 9:02</p>
+            </div>
+          </article>
+
+          <article class="card" data-video-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4">
+            <div class="thumb">
+              <div class="badge">Ad</div>
+              <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=abcdef" alt="work 4" />
+            </div>
+            <div class="meta">
+              <h3>Glow Shift — Product Ad</h3>
+              <p>Commercial • 0:35</p>
+            </div>
+          </article>
+
+          <article class="card" data-video-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4">
+            <div class="thumb">
+              <div class="badge">Documentary</div>
+              <img src="https://images.unsplash.com/photo-1495567720989-cebdbdd97913?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=abcdef" alt="work 5" />
+            </div>
+            <div class="meta">
+              <h3>Under Light — Doc Short</h3>
+              <p>Documentary • 12:25</p>
+            </div>
+          </article>
+
+          <article class="card" data-video-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4">
+            <div class="thumb">
+              <div class="badge">Reel</div>
+              <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=abcdef" alt="work 6" />
+            </div>
+            <div class="meta">
+              <h3>Showreel 2025</h3>
+              <p>Compilation • 2:30</p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- Modal -->
+      <div class="modal" id="modal">
+        <div class="modal-card">
+          <button class="modal-close" id="closeModal">Close</button>
+          <video id="modalVideo" controls controlsList="nodownload" poster="" src=""></video>
+        </div>
+      </div>
+
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Vibrant Cinematic</div>
+      <div style="color:var(--muted)">Built with care • Smooth playback guaranteed</div>
+    </footer>
+  </div>
+
+  <script>
+    // small UX helpers
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // portfolio modal behavior
+    const modal = document.getElementById('modal');
+    const modalVideo = document.getElementById('modalVideo');
+    const closeModal = document.getElementById('closeModal');
+
+    document.getElementById('portfolioGrid').addEventListener('click', e => {
+      const card = e.target.closest('.card');
+      if(!card) return;
+      const src = card.getAttribute('data-video-src');
+      openModal(src);
+    });
+
+    function openModal(src){
+      modal.classList.add('open');
+      modalVideo.src = src;
+      setTimeout(()=> modalVideo.play().catch(()=>{}), 140);
+    }
+    closeModal.addEventListener('click', ()=>{ closeAndReset(); });
+    modal.addEventListener('click', e=>{ if(e.target === modal) closeAndReset(); });
+
+    function closeAndReset(){
+      modal.classList.remove('open');
+      try{ modalVideo.pause(); modalVideo.currentTime = 0; }catch(e){}
+      modalVideo.src = '';
+    }
+
+    // play showreel quickly
+    document.getElementById('playShowreel').addEventListener('click', ()=>{
+      // picks the first card video as a quick showreel
+      const first = document.querySelector('.card');
+      if(first) openModal(first.getAttribute('data-video-src'));
+    });
+
+    // small progressive polish: parallax hero-right on mouse move
+    const heroRight = document.querySelector('.hero-right');
+    if(heroRight){
+      heroRight.addEventListener('mousemove', (e)=>{
+        const r = heroRight.getBoundingClientRect();
+        const dx = (e.clientX - (r.left + r.width/2)) / r.width;
+        const dy = (e.clientY - (r.top + r.height/2)) / r.height;
+        heroRight.style.transform = `translate3d(${dx*6}px, ${dy*6}px, 0)`;
+      });
+      heroRight.addEventListener('mouseleave', ()=>{ heroRight.style.transform = '' });
+    }
+
+    // Helpful note: Replace thumbnail images and data-video-src attributes with your hosted mp4 links or HLS streams.
+  </script>
+</body>
+</html>

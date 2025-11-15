@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Request a Service – Youngbaka</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: #0f0f0f;
+      color: #f0f0f0;
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      padding: 80px 20px 40px;
+    }
+
+    header h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+
+    header p {
+      font-size: 18px;
+      opacity: 0.8;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .container {
+      max-width: 750px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    .card {
+      background: #181818;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+
+    label {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 6px;
+      opacity: 0.9;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      background: #0f0f0f;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 14px 16px;
+      color: white;
+      font-size: 15px;
+      margin-bottom: 20px;
+      outline: none;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    button {
+      width: 100%;
+      background: #3a6df0;
+      border: none;
+      padding: 16px;
+      font-size: 16px;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      transition: 0.25s ease;
+      font-weight: 600;
+    }
+
+    button:hover {
+      background: #5b83ff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px 20px;
+      opacity: 0.6;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Request a Service</h1>
+  <p>Fill out the form and I’ll get back to you with pricing, timelines, and next steps.</p>
+</header>
+
+<div class="container">
+  <div class="card">
+    <form action="https://formsubmit.co/YOUR_EMAIL_HERE" method="POST">
+
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_subject" value="New Client Request!">
+      <input type="hidden" name="_template" value="table">
+
+      <label>Your Name</label>
+      <input type="text" name="name" required>
+
+      <label>Email Address</label>
+      <input type="email" name="email" required>
+
+      <label>Service Needed</label>
+      <select name="service">
+        <option>Video Editing</option>
+        <option>Color Grading</option>
+        <option>Thumbnail Design</option>
+        <option>Motion Graphics</option>
+        <option>Influencer/Ambassador Promo</option>
+        <option>Twitter Raiding / Campaign Boost</option>
+        <option>Other (describe below)</option>
+      </select>
+
+      <label>Project Details</label>
+      <textarea name="details" placeholder="Tell me what you need…"></textarea>
+
+      <label>Deadline (if any)</label>
+      <input type="text" name="deadline" placeholder="Example: 3 days, 1 week">
+
+      <button type="submit">Submit Request</button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  © 2025 Youngbaka — All rights reserved.
+</footer>
+
+</body>
+</html>

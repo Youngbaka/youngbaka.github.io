@@ -76,19 +76,17 @@
 
     #pageRoot{opacity:0;transform:translateY(10px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
 
-    /* Request Form Styling */
     .request-form{max-width:600px;margin:32px auto 0;padding:32px;background:rgba(255,255,255,0.03);border-radius:var(--radius);box-shadow:0 15px 40px rgba(0,0,0,0.5);display:none}
     .request-form.active{display:block}
     .request-form h3{margin:0 0 24px;font-size:26px;text-align:center}
     .form-group{margin-bottom:16px}
     .form-group label{display:block;margin-bottom:6px;font-weight:600;opacity:0.9}
-    .form-group input,.form-group textarea,.form-group input[type="file"]{
-      width:100%;padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.1);background:#111216;color:white;font-size:16px;
-    }
+    .form-group input,.form-group textarea{width:100%;padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.1);background:#111216;color:white;font-size:16px;box-sizing:border-box}
     .form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--accent-1)}
     .form-group textarea{resize:vertical;min-height:120px}
-    .file-upload{display:flex;align-items:center;gap:12px;padding:14px;background:#111216;border-radius:12px;border:1px dashed rgba(255,255,255,0.2);cursor:pointer}
+    .file-upload{display:flex;align-items:center;gap:12px;padding:14px;background:#111216;border-radius:12px;border:2px dashed rgba(255,255,255,0.2);cursor:pointer;transition:border-color .2s}
     .file-upload:hover{border-color:var(--accent-2)}
+    .file-upload input{display:none}
     .form-actions{display:flex;gap:12px;margin-top:24px}
     #formSuccess{display:none;margin-top:20px;padding:16px;background:rgba(255,136,0,0.1);border-radius:12px;color:#ff8800;text-align:center;font-weight:600}
 
@@ -131,10 +129,10 @@
             <button class="btn cta" id="openForm">Request Services</button>
           </div>
 
-          <!-- REQUEST FORM (with file upload) -->
+          <!-- REQUEST FORM WITH FILE UPLOAD (YOUR REAL ENDPOINT) -->
           <div id="requestForm" class="request-form">
             <h3>Let's Work Together</h3>
-            <form action="https://formspree.io/f/xdknwklj" method="POST" enctype="multipart/form-data">
+            <form action="https://formspree.io/f/xgvdebey" method="POST" enctype="multipart/form-data">
               <div class="form-group">
                 <label>Name</label>
                 <input type="text" name="name" required>
@@ -154,8 +152,9 @@
               <div class="form-group">
                 <label>Attach Files (optional)</label>
                 <label class="file-upload">
-                  <input type="file" name="attachment" accept="video/*,image/*,.pdf,.zip" multiple style="display:none">
-                  Click to upload reference videos, moodboards, etc.
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                  <span>Click to upload reference videos, moodboards, etc.</span>
+                  <input type="file" name="attachment" accept="video/*,image/*,.pdf,.zip" multiple>
                 </label>
                 <div id="fileNames" style="margin-top:8px;font-size:14px;opacity:0.8"></div>
               </div>
@@ -176,7 +175,6 @@
         </div>
       </section>
 
-      <!-- Your Recent Work section (with lazy loading) -->
       <section id="projects">
         <div class="section-title"><h2>Recent Work</h2></div>
         <div class="projects-grid" id="projectsGrid"></div>
@@ -190,7 +188,6 @@
   </div>
 
   <script defer>
-    // Intro + Theme + Helpers (same as before)
     const intro=document.getElementById('introOverlay'), root=document.getElementById('pageRoot');
     const skip=document.getElementById('skipIntro');
     function play(){intro.classList.add('playing');setTimeout(()=>{intro.style.display='none';root.style.opacity=1;root.style.transform='translateY(0)'},1500)}
@@ -206,37 +203,27 @@
 
     document.getElementById('year').textContent=new Date().getFullYear();
     function scrollToSection(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'})}
-    document.getElementById('playShowreel').onclick=()=>window.open(document.querySelector('.projects-grid a')?.href,'_blank');
+    document.getElementById('playShowreel').onclick=()=>window.open(document.querySelector('.projects-grid a')?.href || '#','_blank');
 
-    // Form toggle
-    const openBtn = document.getElementById('openForm');
-    const form = document.getElementById('requestForm');
-    const closeBtn = document.getElementById('closeForm');
-    openBtn.onclick = () => { form.classList.add('active'); openBtn.style.display = 'none'; form.scrollIntoView({behavior:'smooth'}); }
-    closeBtn.onclick = () => { form.classList.remove('active'); openBtn.style.display = 'flex'; }
+    // Form logic
+    const openBtn=document.getElementById('openForm');
+    const form=document.getElementById('requestForm');
+    const closeBtn=document.getElementById('closeForm');
+    openBtn.onclick=()=>{form.classList.add('active');openBtn.style.display='none';form.scrollIntoView({behavior:'smooth'});}
+    closeBtn.onclick=()=>{form.classList.remove('active');openBtn.style.display='flex';}
 
-    // Show selected filenames
-    const fileInput = document.querySelector('input[type="file"]');
-    const fileNames = document.getElementById('fileNames');
-    fileInput.onchange = () => {
-      const names = Array.from(fileInput.files).map(f => f.name).join(', ');
-      fileNames.textContent = names ? 'Selected: ' + names : '';
-    };
+    // Show file names
+    const fileInput=document.querySelector('input[type="file"]');
+    const fileNames=document.getElementById('fileNames');
+    fileInput.onchange=()=>{fileNames.textContent=fileInput.files.length?`Selected: ${Array.from(fileInput.files).map(f=>f.name).join(', ')}`:'';}
 
-    // Success message (Formspree)
-    const formEl = document.querySelector('form');
-    formEl.addEventListener('submit', () => {
-      setTimeout(() => {
-        document.getElementById('formSuccess').style.display = 'block';
-        setTimeout(() => location.reload(), 4000);
-      }, 1000);
-    });
+    // Success message after submit
+    document.querySelector('form').addEventListener('submit',()=>{setTimeout(()=>{document.getElementById('formSuccess').style.display='block';setTimeout(()=>{location.reload()},4000)},1000)});
 
-    // Lazy load projects (same as before)
-    const projects = [ /* your 6 projects with Base64 thumbnails */ ];
-    const grid = document.getElementById('projectsGrid');
-    const observer = new IntersectionObserver(e => { if(e[0].isIntersecting){ /* inject cards */ observer.unobserve(grid) } }, {rootMargin:'200px'});
-    observer.observe(grid);
+    // Lazy load projects (you can paste your 6 projects with Base64 thumbnails here later)
+    const projectsGrid=document.getElementById('projectsGrid');
+    const observer=new IntersectionObserver(e=>{if(e[0].isIntersecting){/* inject your cards */ observer.unobserve(projectsGrid)}}, {rootMargin:'200px'});
+    observer.observe(projectsGrid);
   </script>
 </body>
 </html>

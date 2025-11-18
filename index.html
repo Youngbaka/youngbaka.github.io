@@ -146,6 +146,22 @@ i<!doctype html>
     transform: translateY(-3px);
     background: linear-gradient(90deg, var(--accent-2), var(--accent-1));
 }
+/* Make “Request My Services” white */
+.request-services a,
+.request-services {
+    color: #ffffff !important;
+}
+
+/* Make all links in the Recent Work section white */
+.recent-work a {
+    color: #ffffff !important;
+}
+
+/* Optional: hover effect */
+.recent-work a:hover,
+.request-services a:hover {
+    text-decoration: underline;
+}
 
 </style>
 </head>
@@ -199,7 +215,8 @@ i<!doctype html>
           <a class="btn" href="#projects">See Work</a>
           <button class="btn" onclick="window.location.href='cv.html'">CV</button>
         </div>
-        <a class="cta" href="request.html">Request My Services</a>
+        <p class="request-services"><a href="your-link">Request My Services</a></p>
+
 
         <div style="margin-top:18px" class="muted">Followed by: Dennis, Billy, and 4 others you follow</div>
       </div>
@@ -212,7 +229,8 @@ i<!doctype html>
     </section>
 
     <section id="projects">
-      <div class="section-title"><h2>Recent Work</h2></div>
+      <div class="section-title"><h2>Recent Work</h2>
+<div class="recent-work"></div>
 
       <div class="projects-grid">
         <!-- Project 1 -->

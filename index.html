@@ -74,6 +74,27 @@
         border-color: #00eaff;
     }
 
+    .thumb {
+        width: 100%;
+        border-radius: 12px;
+        margin-bottom: 12px;
+    }
+
+    .view-btn {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 10px 14px;
+        background: linear-gradient(90deg,#00eaff,#007bff);
+        color: #05060a;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .view-btn:hover {
+        transform: translateY(-3px);
+    }
+
     footer {
         text-align: center;
         padding: 40px 0;
@@ -98,23 +119,31 @@
 
     <div class="projects-grid">
 
+        <!-- 🔥 NEW VIDEO WITH ANIMATED THUMBNAIL -->
         <div class="project-card">
+            <video class="thumb" autoplay muted loop playsinline>
+                <source src="https://drive.google.com/uc?export=download&id=1iFP6Qwnm8jvvFkGTnBrEuw5oG-yxtcGp" type="video/mp4">
+            </video>
             <h3>Twitter Video Edit</h3>
             <p>Engaging hype edit for crypto marketing.</p>
-            <a href="#" target="_blank">View Work</a>
+            <a class="view-btn" 
+               href="https://drive.google.com/open?id=1iFP6Qwnm8jvvFkGTnBrEuw5oG-yxtcGp&usp=drive_copy" 
+               target="_blank">View Work →</a>
         </div>
 
+        <!-- Placeholder updated for consistency -->
         <div class="project-card">
             <h3>Promo Motion Graphic</h3>
             <p>Smooth transitions + brand-focused animations.</p>
-            <a href="#" target="_blank">View Work</a>
+            <a class="view-btn" href="#" target="_blank">View Work →</a>
         </div>
 
-        <div class="project-card">
-            <h3>Community Raid Content</h3>
-            <p>High-energy meme & shill compilation.</p>
-            <a href="#" target="_blank">View Work</a>
-        </div>
+        <div class="work-card">
+    <img src="https://drive.google.com/uc?id=1LNQvysnyVk_qheiIqihIvOEsJK9M909e" alt="CR7 Ambassador Content">
+    <h3>Ambassador / Influencer for CR7</h3>
+    <p>High-energy meme drops, influencer-style hype, and shill-driven engagement crafted for CR7 fans.</p>
+    <a href="https://drive.google.com/open?id=1LNQvysnyVk_qheiIqihIvOEsJK9M909e&usp=drive_copy" target="_blank" class="view-work">View Work</a>
+</div>
 
     </div>
 </section>

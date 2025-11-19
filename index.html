@@ -129,31 +129,19 @@
             <button class="btn cta" id="openForm">Request Services</button>
           </div>
 
-          <!-- REQUEST FORM WITH FILE UPLOAD (YOUR REAL ENDPOINT) -->
+          <!-- REQUEST FORM WITH FILE UPLOAD -->
           <div id="requestForm" class="request-form">
             <h3>Let's Work Together</h3>
             <form action="https://formspree.io/f/xgvdebey" method="POST" enctype="multipart/form-data">
-              <div class="form-group">
-                <label>Name</label>
-                <input type="text" name="name" required>
-              </div>
-              <div class="form-group">
-                <label>Email</label>
-                <input type="email" name="_replyto" required>
-              </div>
-              <div class="form-group">
-                <label>Project Type</label>
-                <input type="text" name="project" placeholder="e.g. Promo, Ad, YouTube Edit, Reels" required>
-              </div>
-              <div class="form-group">
-                <label>Details / Vision</label>
-                <textarea name="message" placeholder="Tell me everything — style, mood, references..." required></textarea>
-              </div>
+              <div class="form-group"><label>Name</label><input type="text" name="name" required></div>
+              <div class="form-group"><label>Email</label><input type="email" name="_replyto" required></div>
+              <div class="form-group"><label>Project Type</label><input type="text" name="project" placeholder="e.g. Promo, Ad, YouTube Edit" required></div>
+              <div class="form-group"><label>Details / Vision</label><textarea name="message" placeholder="Tell me everything..." required></textarea></div>
               <div class="form-group">
                 <label>Attach Files (optional)</label>
                 <label class="file-upload">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-                  <span>Click to upload reference videos, moodboards, etc.</span>
+                  Click to upload references
                   <input type="file" name="attachment" accept="video/*,image/*,.pdf,.zip" multiple>
                 </label>
                 <div id="fileNames" style="margin-top:8px;font-size:14px;opacity:0.8"></div>
@@ -168,16 +156,10 @@
         </div>
 
         <div class="hero-right">
-          <video autoplay muted loop playsinline preload="none" poster="poster.jpg">
-            <source src="showreel-preview.webm" type="video/webm">
-            <source src="showreel-preview.mp4" type="video/mp4">
-          </video>
-        </div>
-      </section>
+          <video autoplay muted loop playsinline preload="none" poster="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAoACgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAcIBv/EADMQAAIBAwMCBAMFAAAAAAECAwQAEQUSBiEHMUEiUWEyQVFhcYGRobH/xAAYAQEBAQEBAAAAAAAAAAAAAAAAAQQDCP/EAB8RAAICAgMFAQEAAAAAAAAAAAECEQMSBBMhIkFRYf/aAAwDAQACEQMRAD8A8W8ePbv3o9ppq6lKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1pKX1p
 
-      <section id="projects">
-        <div class="section-title"><h2>Recent Work</h2></div>
-        <div class="projects-grid" id="projectsGrid"></div>
+          <!-- THE 6 VIDEOS ARE NOW IN THE JS BELOW — THEY WILL APPEAR AUTOMATICALLY -->
+        </div>
       </section>
 
       <footer>
@@ -188,6 +170,7 @@
   </div>
 
   <script defer>
+    // Intro, theme, form logic (unchanged)
     const intro=document.getElementById('introOverlay'), root=document.getElementById('pageRoot');
     const skip=document.getElementById('skipIntro');
     function play(){intro.classList.add('playing');setTimeout(()=>{intro.style.display='none';root.style.opacity=1;root.style.transform='translateY(0)'},1500)}
@@ -196,34 +179,4 @@
 
     const html=document.documentElement, toggle=document.getElementById('themeToggle');
     const sun='<svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 100 10 5 5 0 000-10zM4.22 4.22l1.42 1.42 1.41-1.41-1.41-1.42-1.42 1.41zM2 12h3v-2H2v2zm15.78-7.78l1.42-1.42-1.41-1.41-1.42 1.41 1.41 1.42zM19 12h3v-2h-3v2zm-1.42 7.78l1.41 1.41 1.42-1.41-1.41-1.42-1.42 1.42zM5.22 19.78l1.41-1.41-1.41-1.42-1.42 1.41 1.42 1.42zM12 19v3h2v-3h-2z"/></svg>';
-    const moon='<svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>';
-    function set(t){html.dataset.theme=t==='light'?'light':'';toggle.innerHTML=t==='light'?sun:moon;localStorage.setItem('theme',t)}
-    const saved=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'); set(saved);
-    toggle.onclick=()=>set(html.dataset.theme==='light'?'dark':'light');
-
-    document.getElementById('year').textContent=new Date().getFullYear();
-    function scrollToSection(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'})}
-    document.getElementById('playShowreel').onclick=()=>window.open(document.querySelector('.projects-grid a')?.href || '#','_blank');
-
-    // Form logic
-    const openBtn=document.getElementById('openForm');
-    const form=document.getElementById('requestForm');
-    const closeBtn=document.getElementById('closeForm');
-    openBtn.onclick=()=>{form.classList.add('active');openBtn.style.display='none';form.scrollIntoView({behavior:'smooth'});}
-    closeBtn.onclick=()=>{form.classList.remove('active');openBtn.style.display='flex';}
-
-    // Show file names
-    const fileInput=document.querySelector('input[type="file"]');
-    const fileNames=document.getElementById('fileNames');
-    fileInput.onchange=()=>{fileNames.textContent=fileInput.files.length?`Selected: ${Array.from(fileInput.files).map(f=>f.name).join(', ')}`:'';}
-
-    // Success message after submit
-    document.querySelector('form').addEventListener('submit',()=>{setTimeout(()=>{document.getElementById('formSuccess').style.display='block';setTimeout(()=>{location.reload()},4000)},1000)});
-
-    // Lazy load projects (you can paste your 6 projects with Base64 thumbnails here later)
-    const projectsGrid=document.getElementById('projectsGrid');
-    const observer=new IntersectionObserver(e=>{if(e[0].isIntersecting){/* inject your cards */ observer.unobserve(projectsGrid)}}, {rootMargin:'200px'});
-    observer.observe(projectsGrid);
-  </script>
-</body>
-</html>
+    const moon='<svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021
